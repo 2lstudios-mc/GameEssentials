@@ -1,0 +1,95 @@
+name: GameEssentials
+main: dev._2lstudios.gameessentials.GameEssentials
+version: 0.0.1
+author: 2LS
+api-version: '1.13'
+commands:
+  anvil:
+    description: Opens an anvil
+  autofeed:
+    description: Feeds yourself automatically.
+  broadcast:
+    aliases:
+      - bc
+  clear:
+    description: Clears your inventory and armor.
+    aliases:
+      - clearall
+  craft:
+    description: Opens a crafting table.
+  createkit:
+    description: Creates a kit.
+  deletekit:
+    description: Deletes a kit.
+  delhome:
+    description: Deletes a Home.
+  enderchest:
+    description: Opens your enderchest.
+    aliases:
+      - ec
+  feed:
+    description: Fills your food bar.
+  fly:
+    description: Toggles fly.
+  gameessentials:
+    description: Main command of the plugin GameEssentials.
+    aliases:
+      - essentials
+  gamemode:
+    aliases:
+      - gm
+  hat:
+    description: Fills your health bar.
+  heal:
+    description: Fills your health bar.
+  helpop:
+    aliases:
+      - a
+  kit:
+    description: Get a kit of items.
+    aliases:
+      - kits
+  kitpreview:
+    description: Show the list of items in a kit.
+  more:
+    description: Get a stack of a item.
+  nametag:
+    description: Disable or enable your nametag.
+  repair:
+    description: Repairs your item in hand.
+    aliases:
+      - fix
+  scoreboard:
+    aliases:
+      - sb
+  setspawn:
+    description: Sets the global spawnpoint.
+  spawn:
+    description: Takes you to the global spawnpoint.
+  speed:
+    description: Changes your fly and walk speed.
+  teleport:
+    aliases:
+      - tp
+  toggletp:
+    description: Toggles teleport requests.
+  tpaccept:
+    description: Accepts teleport request from a player.
+  tpa:
+    description: Asks for a teleport to a player.
+  tpall:
+    description: Teleports all players to a player.
+  home:
+    description: Goes to your home.
+  sethome:
+    description: Sets your home.
+  vanish:
+    aliases:
+      - v
+  iteminfo:
+    description: Shows info of the item in hand.
+  spawner:
+    description: Changes the spawner in your sight
+softdepend:
+  - PlaceholderAPI
+  - Teams

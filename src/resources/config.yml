@@ -1,0 +1,90 @@
+diamondsmined:
+  enabled: true
+
+# Players cannot drop swords, bows and fishing rods.
+nodropweapon:
+  # Do you want to enable this module?
+  enabled: false
+
+# Removes arrows when they hit the ground.
+arrowremover:
+  # Do you want to enable this module?
+  enabled: false
+
+spawn:
+  clear: false
+  commands: []
+
+# Disables the default join message.
+joinmessage:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Set to "" to disable the join message.
+  # Placeholders: %player%
+  message: ""
+
+# Disables the default leave message.
+leavemessage:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Set to "" to disable the join message.
+  # Placeholders: %player%
+  message: ""
+
+# Displays a title when a player joins.
+jointitle:
+  # Do you want to enable this module?
+  enabled: true
+
+  # The title sent to the player.
+  title: "&eArenaPvP"
+
+  # The subtitle sent to the player.
+  subtitle: "&a¡Use /help to see available commands!"
+
+# Disables crafting completelly.
+disablecrafting:
+  # Do you want to enable this module?
+  enabled: false
+
+# Clears the items that players drop.
+cleardrop:
+  # Do you want to enable this module?
+  enabled: false
+
+# Adds a fancy scoreboard to the server
+scoreboard:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Lines to be shown on the scoreboard
+  default:
+    - '&e&lARKFLAME'
+    - '&r'
+    - '&fConectados: &a%server_online%'
+    - '&r '
+    - '&fDinero: &6$%vault_eco_balance_fixed%'
+    - '&r  '
+    - '&eplay.arkflame.com'
+  mundo:
+    - '&e&lARKFLAME'
+    - '&r'
+    - '&fConectados: &a%server_online%'
+    - '<not_zero>&fEnderPearl: &a%gamemechanics_enderpearl_cooldown%'
+    - '&r '
+    - '&eplay.arkflame.com'
+
+# Adds ranks to players nametags
+nametag:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Worlds were nametag is enabled.
+  whitelist: []
+
+# Adds ranks to the tab.
+tab:
+  # Do you want to enable this module?
+  enabled: true

@@ -1,0 +1,18 @@
+# Run multiple actions on player kill.
+killactions:
+  # Do you want to enable this module?
+  enabled: true
+
+  # Set to "" to disable kill messages.
+  kill_message:
+    base: "&c☠ &7%killed% &7fue eliminado%by%!"
+    by: " por %killer%&7%using%"
+    using: " usando %tool%&7"
+
+  # When a player is killed this twolovers.chatcore.commands are executed.
+  # Set to "commands: []" to disable.
+  # %thunder% does a thunder effect.
+  # %pling% does a pling effect.
+  commands:
+    - 'console: eco give %killer% 1'
+    - 'console: effect %killer% 6 1 2'
