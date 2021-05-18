@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev._2lstudios</groupId>
-    <artifactId>gameessentials</artifactId>
-    <version>0.0.1</version>
+    <artifactId>GameEssentials</artifactId>
+    <version>SNAPSHOT</version>
 
     <name>gameessentials</name>
     <!-- FIXME change it to the project's website -->
