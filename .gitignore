@@ -1,2 +1,6 @@
-# Ignore build directory
+.project
+.vscode
+.settings
+.factorypath
+.classpath
 /target

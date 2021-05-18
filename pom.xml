@@ -65,7 +65,7 @@
             <artifactId>teams</artifactId>
             <version>SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>C:\Users\Valen\Desktop\Teams.jar</systemPath>
+            <systemPath>/home/linsaftw/Jars/Teams.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -73,7 +73,7 @@
             <artifactId>Spigot</artifactId>
             <version>SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>C:\Mis cosas\Minecraft\Server 1.16.5\spigot-1.16.5.jar</systemPath>
+            <systemPath>/home/linsaftw/Jars/spigot-1.8.8.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
