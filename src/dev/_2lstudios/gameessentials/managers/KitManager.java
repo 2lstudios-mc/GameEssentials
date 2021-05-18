@@ -1,20 +1,21 @@
 package dev._2lstudios.gameessentials.managers;
 
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.inventory.PlayerInventory;
-import java.util.Iterator;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.Configuration;
-import org.bukkit.inventory.ItemStack;
 import java.io.File;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import dev._2lstudios.gameessentials.instanceables.EssentialsKit;
 import java.util.Map;
+
+import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
-import java.util.Collection;
-import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
+
+import dev._2lstudios.gameessentials.instanceables.EssentialsKit;
+import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
 
 public class KitManager {
     private final Plugin plugin;

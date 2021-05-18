@@ -1,16 +1,17 @@
 package dev._2lstudios.gameessentials.managers;
 
-import java.util.Iterator;
-import org.bukkit.entity.Player;
-import java.util.HashSet;
-import java.util.HashMap;
-import dev._2lstudios.gameessentials.tasks.TeleportTask;
 import java.util.Collection;
-import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
+import java.util.UUID;
+
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+
+import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
+import dev._2lstudios.gameessentials.tasks.TeleportTask;
+import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
 
 public class PlayerManager {
     private final Plugin plugin;

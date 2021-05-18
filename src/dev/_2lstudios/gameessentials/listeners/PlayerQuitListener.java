@@ -37,30 +37,8 @@ public class PlayerQuitListener implements Listener {
         final Scoreboard scoreboard = player.getScoreboard();
         final String playerName = player.getName();
         final EssentialsPlayer essentialsPlayer = this.playerManager.getPlayer(uuid);
-        final boolean scoreboardEnabled = this.variableManager.getSidebarManager().isEnabled();
-        final boolean nametagEnabled = this.variableManager.isNametagEnabled();
         this.autofeedPlayers.remove(player);
-        essentialsPlayer.clearNametagTeams();
-        if (scoreboardEnabled) {
-            scoreboard.clearSlot(DisplaySlot.SIDEBAR);
-        }
-        if (nametagEnabled) {
-            scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
-            for (final Player ply : this.server.getOnlinePlayers()) {
-                if (player != ply) {
-                    final EssentialsPlayer essentialsPly = this.playerManager.getPlayer(ply.getUniqueId());
-                    if (essentialsPly != null) {
-                        essentialsPly.removeNametagTeam(player);
-                    }
-                    final Scoreboard scoreboard2 = ply.getScoreboard();
-                    final Team team = scoreboard2.getTeam(playerName);
-                    if (team != null) {
-                        team.unregister();
-                    }
-                    scoreboard2.resetScores(playerName);
-                }
-            }
-        }
+
         if (!event.getQuitMessage().equals("") && this.variableManager.isLeavemessageEnabled()) {
             event.setQuitMessage(
                     this.variableManager.getLeavemessageMessage().replace("%player%", player.getDisplayName()));

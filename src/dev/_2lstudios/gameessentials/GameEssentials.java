@@ -1,11 +1,9 @@
 package dev._2lstudios.gameessentials;
 
-import org.bukkit.scoreboard.Scoreboard;
 import java.util.UUID;
 import org.bukkit.Server;
 import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
 import dev._2lstudios.gameessentials.managers.PlayerManager;
-import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.inventory.Inventory;
 import java.util.Iterator;
@@ -53,11 +51,6 @@ public class GameEssentials extends JavaPlugin {
         new ListenerInitializer((Plugin) this, GameEssentials.essentialsManager, this.secondTask);
         for (final Player player : this.getServer().getOnlinePlayers()) {
             GameEssentials.essentialsManager.getPlayerManager().addPlayer(player);
-            if (GameEssentials.essentialsManager.getVariableManager().getSidebarManager().isEnabled()
-                    || GameEssentials.essentialsManager.getVariableManager().isNametagEnabled()) {
-                player.setScoreboard(this.getServer().getScoreboardManager().getNewScoreboard());
-            }
-            this.secondTask.update(player, 0);
         }
     }
 
@@ -65,9 +58,6 @@ public class GameEssentials extends JavaPlugin {
         final PlayerManager playerManager = GameEssentials.essentialsManager.getPlayerManager();
         final Collection<EssentialsPlayer> changed = playerManager.getChanged();
         final Server server = this.getServer();
-        final boolean scoreboardEnabled = GameEssentials.essentialsManager.getVariableManager().getSidebarManager()
-                .isEnabled();
-        final boolean nametagEnabled = GameEssentials.essentialsManager.getVariableManager().isNametagEnabled();
         for (final Inventory inventory : GameEssentials.essentialsManager.getKitManager().getPreviewInventories()) {
             for (final HumanEntity humanEntity : inventory.getViewers()) {
                 humanEntity.closeInventory();
@@ -78,17 +68,11 @@ public class GameEssentials extends JavaPlugin {
             final UUID uuid = player.getUniqueId();
             final EssentialsPlayer essentialsPlayer = playerManager.getPlayer(uuid);
             if (essentialsPlayer != null) {
-                final Scoreboard scoreboard = player.getScoreboard();
-                if (scoreboardEnabled) {
-                    scoreboard.clearSlot(DisplaySlot.SIDEBAR);
-                }
-                if (nametagEnabled) {
-                    scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
-                }
                 if (changed.contains(essentialsPlayer)) {
                     essentialsPlayer.save(true);
                     changed.remove(essentialsPlayer);
                 }
+
                 playerManager.removePlayer(uuid);
             }
         }

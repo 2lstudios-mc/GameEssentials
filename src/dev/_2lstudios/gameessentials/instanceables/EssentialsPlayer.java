@@ -1,29 +1,28 @@
 package dev._2lstudios.gameessentials.instanceables;
 
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.Server;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.event.inventory.InventoryType;
-import java.util.Iterator;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.util.Vector;
-import org.bukkit.configuration.file.YamlConfiguration;
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.World;
-import dev._2lstudios.gameessentials.tasks.TeleportTask;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.Location;
 import java.util.List;
-import org.bukkit.scoreboard.Team;
-import org.bukkit.entity.Player;
 import java.util.Map;
-import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
-import dev._2lstudios.gameessentials.managers.PlayerManager;
+
+import org.bukkit.Location;
+import org.bukkit.Server;
+import org.bukkit.World;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.util.Vector;
+
+import dev._2lstudios.gameessentials.managers.PlayerManager;
+import dev._2lstudios.gameessentials.tasks.TeleportTask;
+import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
 
 public class EssentialsPlayer {
     private final Plugin plugin;
@@ -31,10 +30,7 @@ public class EssentialsPlayer {
     private final ConfigurationUtil configurationUtil;
     private final Map<String, Long> cooldowns;
     private final Player player;
-    private final Map<Player, Team> nametagTeams;
     private final List<Location> homes;
-    private Objective scoreboardObjective;
-    private Objective healthObjective;
     private TeleportTask teleportTask;
     private World lastScoreboardWorld;
     private Inventory anvil;
@@ -43,16 +39,11 @@ public class EssentialsPlayer {
     private long lastHelpop;
     private boolean vanished;
     private boolean teleportRequests;
-    private boolean nametag;
-    private boolean scoreboard;
 
     public EssentialsPlayer(final Plugin plugin, final PlayerManager playerManager,
             final ConfigurationUtil configurationUtil, final Player player) {
         this.cooldowns = new HashMap<String, Long>();
-        this.nametagTeams = new HashMap<Player, Team>();
         this.homes = new ArrayList<Location>();
-        this.scoreboardObjective = null;
-        this.healthObjective = null;
         this.teleportTask = null;
         this.lastScoreboardWorld = null;
         this.anvil = null;
@@ -61,8 +52,6 @@ public class EssentialsPlayer {
         this.lastHelpop = 0L;
         this.vanished = false;
         this.teleportRequests = true;
-        this.nametag = true;
-        this.scoreboard = true;
         this.plugin = plugin;
         this.playerManager = playerManager;
         this.configurationUtil = configurationUtil;
@@ -225,56 +214,8 @@ public class EssentialsPlayer {
         return this.cooldowns.getOrDefault(name, 0L);
     }
 
-    public boolean isNametag() {
-        return this.nametag;
-    }
-
-    public void setNametagEnabled(final boolean nametag) {
-        this.nametag = nametag;
-    }
-
-    public boolean isScoreboardEnabled() {
-        return this.scoreboard;
-    }
-
-    public void setScoreboardEnabled(final boolean scoreboard) {
-        this.scoreboard = scoreboard;
-    }
-
     public long getLastTeleportRequestTime() {
         return this.lastTeleportRequestTime;
-    }
-
-    public void setScoreboardObjective(final Objective objective) {
-        this.scoreboardObjective = objective;
-    }
-
-    public Objective getScoreboardObjective() {
-        return this.scoreboardObjective;
-    }
-
-    public void setHealthObjective(final Objective objective) {
-        this.healthObjective = objective;
-    }
-
-    public Objective getHealthObjective() {
-        return this.healthObjective;
-    }
-
-    public void addNametagTeam(final Player player, final Team team) {
-        this.nametagTeams.put(player, team);
-    }
-
-    public Team getNametagTeam(final Player player) {
-        return this.nametagTeams.getOrDefault(player, null);
-    }
-
-    public void removeNametagTeam(final Player ply) {
-        this.nametagTeams.remove(ply);
-    }
-
-    public void clearNametagTeams() {
-        this.nametagTeams.clear();
     }
 
     public long getLastHelpop() {

@@ -33,28 +33,29 @@ public class PlayerJoinListener implements Listener {
         final Player player = event.getPlayer();
         final String motd = this.variableManager.getMotd();
         this.playerManager.addPlayer(player);
-        if (this.variableManager.getSidebarManager().isEnabled() || this.variableManager.isNametagEnabled()) {
-            player.setScoreboard(this.server.getScoreboardManager().getNewScoreboard());
-        }
+
         for (final EssentialsPlayer essentialsPlayer1 : this.playerManager.getPlayers()) {
             if (essentialsPlayer1.isVanished()) {
                 player.hidePlayer(essentialsPlayer1.getPlayer());
             }
         }
-        this.secondTask.update(player, 0);
+
         if (!player.hasPlayedBefore()) {
             final Location spawn = this.variableManager.getSpawn();
             if (spawn != null) {
                 player.teleport(spawn);
             }
         }
+
         if (motd != null && !motd.isEmpty()) {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', motd));
         }
+
         if (this.variableManager.isJoinTitleEnabled()) {
             player.resetTitle();
             player.sendTitle(this.variableManager.getJointitleTitle(), this.variableManager.getJointitleSubtitle());
         }
+
         if (this.variableManager.isJoinmessageEnabled()) {
             event.setJoinMessage(
                     this.variableManager.getJoinmessageMessage().replace("%player%", player.getDisplayName()));

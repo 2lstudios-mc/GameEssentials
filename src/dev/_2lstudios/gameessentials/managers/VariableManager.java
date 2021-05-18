@@ -1,27 +1,25 @@
 package dev._2lstudios.gameessentials.managers;
 
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.entity.Player;
-import java.util.Iterator;
-import java.util.Map;
-import org.bukkit.util.Vector;
-import org.bukkit.configuration.Configuration;
-import java.util.HashMap;
-import org.bukkit.ChatColor;
-import org.bukkit.Bukkit;
+import java.util.Collection;
 import java.util.HashSet;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import java.util.Collection;
+import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.Vector;
+
 import dev._2lstudios.gameessentials.utils.ConfigurationUtil;
 
 public class VariableManager {
     private final ConfigurationUtil configurationUtil;
     private final Collection<Block> blocks;
-    private final SidebarManager sidebarManager;
     private Collection<String> spawnCommands;
     private Collection<String> killActionsCommands;
     private Collection<String> nametagWhitelist;
@@ -50,7 +48,6 @@ public class VariableManager {
     public VariableManager(final ConfigurationUtil configurationUtil) {
         this.blocks = new HashSet<Block>();
         this.configurationUtil = configurationUtil;
-        this.sidebarManager = new SidebarManager();
         this.reload();
     }
 
@@ -102,14 +99,6 @@ public class VariableManager {
         this.nametagEnabled = configYml.getBoolean("nametag.enabled");
         this.tabEnabled = configYml.getBoolean("tab.enabled");
         this.spawnClear = configYml.getBoolean("spawn.clear");
-        final boolean sideBarEnabled = configYml.getBoolean("scoreboard.enabled");
-        final Map<String, Collection<String>> sidebars = new HashMap<String, Collection<String>>();
-        for (final String string : configYml.getConfigurationSection("scoreboard").getKeys(false)) {
-            if (!string.equalsIgnoreCase("enabled")) {
-                sidebars.put(string, configYml.getStringList("scoreboard." + string));
-            }
-        }
-        this.sidebarManager.reload(sideBarEnabled, sidebars);
     }
 
     public boolean isArrowRemoverEnabled() {
@@ -232,9 +221,5 @@ public class VariableManager {
 
     public Collection<String> getNametagWhitelist() {
         return this.nametagWhitelist;
-    }
-
-    public SidebarManager getSidebarManager() {
-        return this.sidebarManager;
     }
 }
