@@ -38,16 +38,25 @@ public class HelpopCMD implements CommandExecutor {
         if (!(commandSender instanceof Player)) {
             return COOLDOWN_TIME;
         }
+
+        if (commandSender.hasPermission("essentials.helpop.receive")) {
+            return COOLDOWN_TIME;
+        }
+
         final Player player = (Player) commandSender;
         final EssentialsPlayer essentialsPlayer = this.playerManager.getPlayer(player.getUniqueId());
+
         if (essentialsPlayer == null) {
             return COOLDOWN_TIME;
         }
+
         final long currentTime = System.currentTimeMillis();
         final long cooldown = Math.abs(essentialsPlayer.getLastHelpop() - currentTime);
+
         if (cooldown >= COOLDOWN_TIME) {
             essentialsPlayer.setLastHelpop(currentTime);
         }
+
         return cooldown;
     }
 
@@ -58,14 +67,17 @@ public class HelpopCMD implements CommandExecutor {
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
         if (sender.hasPermission("essentials.helpop")) {
             final long cooldown = this.getAndUpdateCooldown(sender);
+
             if (cooldown < COOLDOWN_TIME) {
                 sender.sendMessage(ChatColor.RED + "Espera " + this.toSeconds(COOLDOWN_TIME - cooldown)
                         + " antes de volver a usar el helpop!");
             } else if (args.length > 0) {
                 String message = "";
+
                 for (final String arg : args) {
                     message = message.concat(String.valueOf(arg) + " ");
                 }
+
                 if (!message.isEmpty()) {
                     this.sendMessage(sender, message.trim());
                 } else {
