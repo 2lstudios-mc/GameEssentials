@@ -13,13 +13,8 @@ import org.bukkit.command.CommandExecutor;
 public class HelpopCMD implements CommandExecutor {
     private final Server server;
     private final PlayerManager playerManager;
-    private static final DecimalFormat DECIMAL_FORMAT;
-    // Sammwy: esta variable me marca como no usada, por las dudas la comentaré.
-    // private static final int COOLDOWN_TIME = 2000;
-
-    static {
-        DECIMAL_FORMAT = new DecimalFormat("#.#");
-    }
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.#");
+    private static final int COOLDOWN_TIME = 15000;
 
     public HelpopCMD(final Server server, final PlayerManager playerManager) {
         this.server = server;
@@ -41,16 +36,16 @@ public class HelpopCMD implements CommandExecutor {
 
     private long getAndUpdateCooldown(final CommandSender commandSender) {
         if (!(commandSender instanceof Player)) {
-            return 2000L;
+            return COOLDOWN_TIME;
         }
         final Player player = (Player) commandSender;
         final EssentialsPlayer essentialsPlayer = this.playerManager.getPlayer(player.getUniqueId());
         if (essentialsPlayer == null) {
-            return 2000L;
+            return COOLDOWN_TIME;
         }
         final long currentTime = System.currentTimeMillis();
         final long cooldown = Math.abs(essentialsPlayer.getLastHelpop() - currentTime);
-        if (cooldown >= 2000L) {
+        if (cooldown >= COOLDOWN_TIME) {
             essentialsPlayer.setLastHelpop(currentTime);
         }
         return cooldown;
@@ -63,8 +58,8 @@ public class HelpopCMD implements CommandExecutor {
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
         if (sender.hasPermission("essentials.helpop")) {
             final long cooldown = this.getAndUpdateCooldown(sender);
-            if (cooldown < 2000L) {
-                sender.sendMessage(ChatColor.RED + "Espera " + this.toSeconds(2000L - cooldown)
+            if (cooldown < COOLDOWN_TIME) {
+                sender.sendMessage(ChatColor.RED + "Espera " + this.toSeconds(COOLDOWN_TIME - cooldown)
                         + " antes de volver a usar el helpop!");
             } else if (args.length > 0) {
                 String message = "";
