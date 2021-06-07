@@ -45,31 +45,28 @@
         </repository>
         <repository>
             <id>placeholderapi</id>
-            <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
     </repositories>
     <dependencies>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.0.6</version>
+            <version>2.10.9</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>twolovers</groupId>
             <artifactId>teams</artifactId>
             <version>SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>/home/linsaftw/Jars/Teams.jar</systemPath>
+            <systemPath>C:\Users\LinsaFTW\Documents\Jars\Teams.jar</systemPath>
         </dependency>
-
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>Spigot</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>/home/linsaftw/Jars/spigot-1.8.8.jar</systemPath>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

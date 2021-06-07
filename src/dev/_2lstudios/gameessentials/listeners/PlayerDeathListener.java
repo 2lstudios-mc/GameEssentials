@@ -3,7 +3,6 @@ package dev._2lstudios.gameessentials.listeners;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.EventHandler;
 import org.bukkit.command.CommandSender;
-import java.util.Iterator;
 import org.bukkit.Server;
 import java.util.Collection;
 import org.bukkit.entity.Player;

@@ -4,7 +4,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.EventHandler;
 import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
 import org.bukkit.entity.Player;
-import dev._2lstudios.gameessentials.tasks.TeleportTask;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
 import dev._2lstudios.gameessentials.managers.PlayerManager;

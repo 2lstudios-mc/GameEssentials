@@ -15,30 +15,30 @@ import dev._2lstudios.gameessentials.listeners.InventoryClickListener;
 import dev._2lstudios.gameessentials.listeners.EntityDeathListener;
 import dev._2lstudios.gameessentials.listeners.EntityDamageListener;
 import dev._2lstudios.gameessentials.listeners.EntityDamageByEntityListener;
-import org.bukkit.event.Listener;
 import dev._2lstudios.gameessentials.listeners.BlockBreakListener;
-import dev._2lstudios.gameessentials.tasks.SecondTask;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
+import dev._2lstudios.gameessentials.runnables.AutoFeedRunnable;
+
 import org.bukkit.plugin.Plugin;
 
 public class ListenerInitializer {
     public ListenerInitializer(final Plugin plugin, final EssentialsManager essentialsManager,
-            final SecondTask secondTask) {
+            final AutoFeedRunnable secondTask) {
         final Server server = plugin.getServer();
         final PluginManager pluginManager = server.getPluginManager();
-        pluginManager.registerEvents((Listener) new BlockBreakListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new EntityDamageByEntityListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new EntityDamageListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new EntityDeathListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new InventoryClickListener(essentialsManager.getKitManager()), plugin);
-        pluginManager.registerEvents((Listener) new PlayerDeathListener(plugin, essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PlayerDropItemListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PlayerJoinListener(server, essentialsManager, secondTask), plugin);
-        pluginManager.registerEvents((Listener) new PlayerMoveListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PlayerQuitListener(server, essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PlayerRespawnListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PlayerTeleportListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new PrepareItemCraftListener(essentialsManager), plugin);
-        pluginManager.registerEvents((Listener) new ProjectileHitListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new BlockBreakListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new EntityDamageByEntityListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new EntityDamageListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new EntityDeathListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new InventoryClickListener(essentialsManager.getKitManager()), plugin);
+        pluginManager.registerEvents(new PlayerDeathListener(plugin, essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerDropItemListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerJoinListener(server, essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerMoveListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerQuitListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerRespawnListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new PlayerTeleportListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new PrepareItemCraftListener(essentialsManager), plugin);
+        pluginManager.registerEvents(new ProjectileHitListener(essentialsManager), plugin);
     }
 }

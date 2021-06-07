@@ -18,7 +18,7 @@ public class TeleportTask {
         this.time = time;
     }
 
-    boolean tick() {
+    public boolean tick() {
         --this.time;
         if (this.essentialsPlayer.getTeleportTask() != this) {
             return true;

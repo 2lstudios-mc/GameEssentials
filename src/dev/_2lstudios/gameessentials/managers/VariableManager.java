@@ -56,6 +56,7 @@ public class VariableManager {
         this.configurationUtil.createConfiguration("%datafolder%/motd.yml");
         this.configurationUtil.createConfiguration("%datafolder%/spawn.yml");
         this.configurationUtil.createConfiguration("%datafolder%/kill_actions.yml");
+        
         final Configuration configYml = (Configuration) this.configurationUtil
                 .getConfiguration("%datafolder%/config.yml");
         final Configuration motdYml = (Configuration) this.configurationUtil.getConfiguration("%datafolder%/motd.yml");
@@ -64,7 +65,7 @@ public class VariableManager {
         final Configuration killActionsYml = (Configuration) this.configurationUtil
                 .getConfiguration("%datafolder%/kill_actions.yml");
         final Vector coordinates = spawnYml.getVector("coordinates");
-        final String killmessagesection = "killactions.kill_message";
+
         if (coordinates != null) {
             this.spawn = new Location(Bukkit.getWorld(spawnYml.getString("world")), coordinates.getX(),
                     coordinates.getY(), coordinates.getZ());

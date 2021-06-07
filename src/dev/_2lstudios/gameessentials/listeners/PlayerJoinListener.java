@@ -2,30 +2,23 @@ package dev._2lstudios.gameessentials.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.Location;
-import java.util.Iterator;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
 import org.bukkit.event.player.PlayerJoinEvent;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
-import dev._2lstudios.gameessentials.tasks.SecondTask;
 import dev._2lstudios.gameessentials.managers.VariableManager;
 import dev._2lstudios.gameessentials.managers.PlayerManager;
 import org.bukkit.Server;
 import org.bukkit.event.Listener;
 
 public class PlayerJoinListener implements Listener {
-    private final Server server;
     private final PlayerManager playerManager;
     private final VariableManager variableManager;
-    private final SecondTask secondTask;
 
-    public PlayerJoinListener(final Server server, final EssentialsManager essentialsManager,
-            final SecondTask secondTask) {
-        this.server = server;
+    public PlayerJoinListener(final Server server, final EssentialsManager essentialsManager) {
         this.playerManager = essentialsManager.getPlayerManager();
         this.variableManager = essentialsManager.getVariableManager();
-        this.secondTask = secondTask;
     }
 
     @EventHandler(ignoreCancelled = true)

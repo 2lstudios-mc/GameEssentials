@@ -6,7 +6,6 @@ import org.bukkit.Location;
 import dev._2lstudios.gameessentials.instanceables.EssentialsPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
-import dev._2lstudios.gameessentials.tasks.TeleportTask;
 import org.bukkit.event.player.PlayerMoveEvent;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
 import dev._2lstudios.gameessentials.managers.PlayerManager;
