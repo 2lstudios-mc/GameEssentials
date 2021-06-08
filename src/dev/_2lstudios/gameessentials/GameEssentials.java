@@ -26,15 +26,9 @@ import dev._2lstudios.gameessentials.utils.VersionUtil;
 public class GameEssentials extends JavaPlugin {
     private final Collection<TeleportTask> teleportTasks;
     private static EssentialsManager essentialsManager;
-    private AutoFeedRunnable secondTask;
-
-    static {
-        GameEssentials.essentialsManager = null;
-    }
-
+    
     public GameEssentials() {
         this.teleportTasks = new HashSet<TeleportTask>();
-        this.secondTask = null;
     }
 
     public synchronized void onEnable() {
@@ -52,11 +46,11 @@ public class GameEssentials extends JavaPlugin {
 
         new CommandInitializer(this, GameEssentials.essentialsManager);
         new ClearingTask(this, GameEssentials.essentialsManager);
-        new ListenerInitializer(this, GameEssentials.essentialsManager, this.secondTask);
+        new ListenerInitializer(this, GameEssentials.essentialsManager);
 
         server.getScheduler().runTaskTimerAsynchronously(this, new AutoFeedRunnable(server, essentialsManager), 20L,
                 20L);
-        server.getScheduler().runTaskTimerAsynchronously(this, new TeleportTaskRunnable(teleportTasks), 20L, 20L);
+        server.getScheduler().runTaskTimer(this, new TeleportTaskRunnable(teleportTasks), 20L, 20L);
 
         for (final Player player : this.getServer().getOnlinePlayers()) {
             GameEssentials.essentialsManager.getPlayerManager().addPlayer(player);

@@ -22,8 +22,7 @@ import dev._2lstudios.gameessentials.runnables.AutoFeedRunnable;
 import org.bukkit.plugin.Plugin;
 
 public class ListenerInitializer {
-    public ListenerInitializer(final Plugin plugin, final EssentialsManager essentialsManager,
-            final AutoFeedRunnable secondTask) {
+    public ListenerInitializer(final Plugin plugin, final EssentialsManager essentialsManager) {
         final Server server = plugin.getServer();
         final PluginManager pluginManager = server.getPluginManager();
         pluginManager.registerEvents(new BlockBreakListener(essentialsManager), plugin);
