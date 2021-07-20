@@ -17,10 +17,6 @@ commands:
       - clearall
   craft:
     description: Opens a crafting table.
-  createkit:
-    description: Creates a kit.
-  deletekit:
-    description: Deletes a kit.
   delhome:
     description: Deletes a Home.
   enderchest:
@@ -45,12 +41,6 @@ commands:
   helpop:
     aliases:
       - a
-  kit:
-    description: Get a kit of items.
-    aliases:
-      - kits
-  kitpreview:
-    description: Show the list of items in a kit.
   more:
     description: Get a stack of a item.
   nametag:
