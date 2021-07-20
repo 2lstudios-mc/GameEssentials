@@ -11,13 +11,11 @@ import dev._2lstudios.gameessentials.listeners.PlayerMoveListener;
 import dev._2lstudios.gameessentials.listeners.PlayerJoinListener;
 import dev._2lstudios.gameessentials.listeners.PlayerDropItemListener;
 import dev._2lstudios.gameessentials.listeners.PlayerDeathListener;
-import dev._2lstudios.gameessentials.listeners.InventoryClickListener;
 import dev._2lstudios.gameessentials.listeners.EntityDeathListener;
 import dev._2lstudios.gameessentials.listeners.EntityDamageListener;
 import dev._2lstudios.gameessentials.listeners.EntityDamageByEntityListener;
 import dev._2lstudios.gameessentials.listeners.BlockBreakListener;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
-import dev._2lstudios.gameessentials.runnables.AutoFeedRunnable;
 
 import org.bukkit.plugin.Plugin;
 
@@ -29,7 +27,6 @@ public class ListenerInitializer {
         pluginManager.registerEvents(new EntityDamageByEntityListener(essentialsManager), plugin);
         pluginManager.registerEvents(new EntityDamageListener(essentialsManager), plugin);
         pluginManager.registerEvents(new EntityDeathListener(essentialsManager), plugin);
-        pluginManager.registerEvents(new InventoryClickListener(essentialsManager.getKitManager()), plugin);
         pluginManager.registerEvents(new PlayerDeathListener(plugin, essentialsManager), plugin);
         pluginManager.registerEvents(new PlayerDropItemListener(essentialsManager), plugin);
         pluginManager.registerEvents(new PlayerJoinListener(server, essentialsManager), plugin);

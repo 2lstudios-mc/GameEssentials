@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.UUID;
 
 import org.bukkit.Server;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev._2lstudios.gameessentials.commands.initializers.CommandInitializer;
@@ -61,12 +59,6 @@ public class GameEssentials extends JavaPlugin {
         final PlayerManager playerManager = GameEssentials.essentialsManager.getPlayerManager();
         final Collection<EssentialsPlayer> changed = playerManager.getChanged();
         final Server server = this.getServer();
-
-        for (final Inventory inventory : GameEssentials.essentialsManager.getKitManager().getPreviewInventories()) {
-            for (final HumanEntity humanEntity : inventory.getViewers()) {
-                humanEntity.closeInventory();
-            }
-        }
 
         for (final Player player : server.getOnlinePlayers()) {
             final UUID uuid = player.getUniqueId();
