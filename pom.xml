@@ -47,20 +47,22 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+        <repository>
+            <id>2lstudios-repo</id>
+            <url>https://repo.2lstudios.dev/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.10.9</version>
+            <version>2.10.10</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>twolovers</groupId>
-            <artifactId>teams</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>C:\Users\LinsaFTW\Documents\Jars\Teams.jar</systemPath>
+            <groupId>dev._2lstudios</groupId>
+            <artifactId>Teams</artifactId>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
