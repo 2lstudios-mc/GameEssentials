@@ -1,6 +1,8 @@
 package dev._2lstudios.gameessentials.tasks;
 
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.ChatColor;
 import dev._2lstudios.gameessentials.managers.EssentialsManager;
 import org.bukkit.Location;
@@ -26,6 +28,9 @@ public class TeleportTask {
         if (this.time <= 0) {
             final Player player = this.essentialsPlayer.getPlayer();
             if (player != null && player.isOnline() && !player.isDead()) {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0));
+                player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
                 player.teleport(this.location);
                 this.essentialsPlayer.setTeleportTask(null);
                 player.sendMessage(ChatColor.GREEN + "Fuiste teletransportado correctamente!");
