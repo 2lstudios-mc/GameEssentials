@@ -48,8 +48,8 @@
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
-            <id>2lstudios-repo</id>
-            <url>https://repo.2lstudios.dev/</url>
+            <id>2lstudios</id>
+            <url>https://ci.2lstudios.dev/plugin/repository/everything/</url>
         </repository>
     </repositories>
     <dependencies>
