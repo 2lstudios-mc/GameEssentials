@@ -28,9 +28,11 @@ public class PlayerQuitListener implements Listener {
         final Player player = event.getPlayer();
         final UUID uuid = player.getUniqueId();
         final EssentialsPlayer essentialsPlayer = this.playerManager.getPlayer(uuid);
+        final String quitMessage = event.getQuitMessage();
+        
         this.autofeedPlayers.remove(player);
 
-        if (!event.getQuitMessage().equals("") && this.variableManager.isLeavemessageEnabled()) {
+        if (quitMessage != null && !quitMessage.equals("") && this.variableManager.isLeavemessageEnabled()) {
             event.setQuitMessage(
                     this.variableManager.getLeavemessageMessage().replace("%player%", player.getDisplayName()));
         }
